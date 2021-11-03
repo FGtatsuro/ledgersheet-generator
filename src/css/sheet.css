@@ -15,6 +15,12 @@ body {
   margin: 0;
   overflow: hidden;
   box-sizing: border-box;
+  /*
+   * Ref: https://developer.mozilla.org/ja/docs/Web/CSS/break-before
+   *
+   * "break-before: always" hasn't been supported in many browsers yet.
+   */
+  page-break-after: always;
 }
 
 @media screen {
