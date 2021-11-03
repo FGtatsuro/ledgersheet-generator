@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>A4帳票</title>
+    <title>請求書</title>
     <link href="sheet.css" rel="stylesheet">
   </head>
   <body>
@@ -12,7 +12,90 @@
     </nav>
     <main>
       <section class="sheet">
-        test
+        <h1 class="title">請求書</h1>
+        <div class="meta spacer">
+          <div>
+            請求日: <span class="editable" contenteditable="true">入力して下さい</span>
+          </div>
+          <div>
+            請求No: <span class="editable" contenteditable="true">入力して下さい</span>
+          </div>
+        </div>
+        <div class="billing-info spacer">
+          <div class="border-bottom">
+            <span class="editable" contenteditable="true">入力して下さい</span> 御中
+          </div>
+          <div>
+            件名: <span class="editable" contenteditable="true">入力して下さい</span>
+          </div>
+          <div>
+            お支払い期限: <span class="editable" contenteditable="true">入力して下さい</span>
+          </div>
+          <div>
+            お振込先
+            <div  class="editable" contenteditable="true">入力して下さい</div>
+          </div>
+        </div>
+        <div class="publisher-info spacer">
+          <div>
+            <div class="editable" contenteditable="true">住所を入力して下さい</div>
+          </div>
+          <div>
+            <div class="editable" contenteditable="true">自分の氏名を入力して下さい</div>
+          </div>
+          <div>
+            電話番号: <span class="editable" contenteditable="true">入力して下さい</span>
+          </div>
+          <div>
+            メールアドレス: <span class="editable" contenteditable="true">入力して下さい</span>
+          </div>
+        </div>
+        <div class="billing-summary">
+          <p>
+            下記のとおりご請求申し上げます。
+          </p>
+          <div class="border-bottom">
+            ご請求金額: <span class="editable" contenteditable="true">入力して下さい</span>
+          </div>
+        </div>
+        <!-- NOTE: I try to use table instead of Grid, but colspan doesn't work well... -->
+        <div class="billing-detail">
+          <div class="name header">品名</div>
+          <div class="count header">数量</div>
+          <div class="unit header">単位</div>
+          <div class="price header">単価</div>
+          <div class="amount header">金額</div>
+          <!-- TODO: Now, I can handle only fixed rows. It's better to add rows dynamically -->
+          <div class="name data" contenteditable="true"></div>
+          <div class="count data" contenteditable="true"></div>
+          <div class="unit data" contenteditable="true"></div>
+          <div class="price data" contenteditable="true"></div>
+          <div class="amount data" contenteditable="true"></div>
+
+          <div class="name data" contenteditable="true"></div>
+          <div class="count data" contenteditable="true"></div>
+          <div class="unit data" contenteditable="true"></div>
+          <div class="price data" contenteditable="true"></div>
+          <div class="amount data" contenteditable="true"></div>
+
+          <div class="name data" contenteditable="true"></div>
+          <div class="count data" contenteditable="true"></div>
+          <div class="unit data" contenteditable="true"></div>
+          <div class="price data" contenteditable="true"></div>
+          <div class="amount data" contenteditable="true"></div>
+
+          <div class="name data" contenteditable="true"></div>
+          <div class="count data" contenteditable="true"></div>
+          <div class="unit data" contenteditable="true"></div>
+          <div class="price data" contenteditable="true"></div>
+          <div class="amount data" contenteditable="true"></div>
+
+          <div class="name data" contenteditable="true"></div>
+          <div class="count data" contenteditable="true"></div>
+          <div class="unit data" contenteditable="true"></div>
+          <div class="price data" contenteditable="true"></div>
+          <div class="amount data" contenteditable="true"></div>
+        </div>
       </section>
     </main>
     <footer>

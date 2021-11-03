@@ -22,6 +22,93 @@ body {
    * "break-before: always" hasn't been supported in many browsers yet.
    */
   page-break-after: always;
+  display: grid;
+  grid-template-areas:
+    "meta meta"
+    "title title"
+    "billing-info publisher-info"
+    "billing-summary ."
+    "billing-detail billing-detail";
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: min-content;
+  gap: 2mm;
+}
+
+.sheet > .title {
+  grid-area: title;
+  text-align: center;
+}
+
+.sheet > .meta {
+  grid-area: meta;
+  text-align: end;
+}
+
+.sheet > .billing-info {
+  grid-area: billing-info;
+  text-align: start;
+}
+
+.sheet > .billing-summary {
+  grid-area: billing-summary;
+  margin: 2mm 0;
+}
+
+.sheet > .billing-detail {
+  grid-area: billing-detail;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.sheet > .publisher-info {
+  grid-area: publisher-info;
+  text-align: end;
+}
+
+.billing-detail .name {
+  grid-column: 1 / 5;
+}
+
+.billing-detail .count {
+  grid-column: 5 / 6;
+}
+
+.billing-detail .unit {
+  grid-column: 6 / 7;
+}
+
+.billing-detail .price {
+  grid-column: 7 / 8;
+}
+
+.billing-detail .amount {
+  grid-column: 8 / 9;
+}
+
+.billing-detail .header {
+  background-color: rgba(224 224 224 / 50%);
+  border: 1px solid black;
+  text-align: center;
+}
+
+.billing-detail .data {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.border-bottom {
+  border-bottom: thick double rgba(0 0 0);
+}
+
+.spacer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  row-gap: 1mm;
+}
+
+.editable {
+  background-color: rgba(224 224 224 / 60%);
 }
 
 @media screen {
@@ -36,13 +123,24 @@ body {
   }
 }
 
-/*
- * Ref: https://qiita.com/cognitom/items/d39d5f19054c8c8fd592
- *
- * Workaround for Chrome bug
- */
 @media print {
   body {
+    /*
+     * Ref: https://qiita.com/cognitom/items/d39d5f19054c8c8fd592
+     *
+     * Workaround for Chrome bug
+     */
     width: 210mm;
+
+    /*
+     * Ref: https://developer.mozilla.org/ja/docs/Web/CSS/-webkit-print-color-adjust
+     *
+     * This property isn't supported in IE/Firefox.
+     */
+    -webkit-print-color-adjust: exact;
+  }
+
+  .editable {
+    background-color: transparent;
   }
 }
