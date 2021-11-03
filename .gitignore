@@ -102,9 +102,11 @@ typings/
 # TernJS port file
 .tern-port
 
-.build
-
 todo*
 tmp*
 
 dist/*
+
+# For Make tasks
+.*build
+.lint
