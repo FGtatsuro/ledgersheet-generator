@@ -32,3 +32,8 @@ Generator for Ledger Sheet
    ```bash
    $ make lint build
    ```
+
+## Reference
+
+- https://qiita.com/cognitom/items/d39d5f19054c8c8fd592
+- https://github.com/cognitom/paper-css
