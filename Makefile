@@ -2,22 +2,26 @@
 
 IMAGE := ledgersheet-generator
 
-docker/build: .build
-.build: package.json package-lock.json \
+docker/build: .docker_build
+.docker_build: package.json package-lock.json \
 	.stylelintrc.json \
 	Dockerfile
 	docker build -t $(IMAGE):latest .
-	touch .build
+	touch .docker_build
 
-lint: docker/build
+lint: docker/build .lint
+.lint: src/html/sheet.html src/css/sheet.css
 	docker run -v `pwd`/src:/workdir/src -v `pwd`/dist:/workdir/dist -it --rm \
 		$(IMAGE):latest \
 		npx htmlhint src/html
 	docker run -v `pwd`/src:/workdir/src -v `pwd`/dist:/workdir/dist -it --rm \
 		$(IMAGE):latest \
 		npx stylelint src/css
+	touch .lint
 
-build: docker/build
+build: docker/build .build
+.build: src/html/sheet.html src/css/sheet.css
 	docker run -v `pwd`/src:/workdir/src -v `pwd`/dist:/workdir/dist -it --rm --entrypoint cp \
 		$(IMAGE):latest \
 		src/html/sheet.html src/css/sheet.css dist
+	touch .build
