@@ -1,4 +1,4 @@
-.PHONY: docker/build lint build
+.PHONY: docker/build lint build open
 
 IMAGE := ledgersheet-generator
 
@@ -25,3 +25,6 @@ build: docker/build .build
 		$(IMAGE):latest \
 		src/html/sheet.html src/css/sheet.css dist
 	touch .build
+
+open: build
+	open dist/sheet.html
